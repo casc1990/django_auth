@@ -21,7 +21,7 @@ python manage.py startapp users
     7. registration/password_reset_done.html  邮件发送成功页面模板
     8. registration/password_reset_confirm.html  设置新密码页面模板
     9. registration/password_reset_complete.html 设置新密码成功页面模板
-    
+
 
 
 

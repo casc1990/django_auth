@@ -1,0 +1,44 @@
+环境说明
+Django 1.11.1
+Python 3.5
+
+#创建项目
+django-admin startproject django_auth_example
+
+#新建应用
+python manage.py startapp users
+
+#拓展 User 模型
+    1. 继承 AbstractUser 拓展用户模型
+
+#模板文件说明：
+    1. templates/users/register.html  用户注册模板
+    2. registration/login.html   登陆模板
+    3. templates/index.html  首页模板
+    4. templates/registration/password_change_form.html  修改密码模板
+    5. templates/registration/password_change_done.html  密码修改成功页面模板
+    6. registration/password_reset_form.html  重置密码模板
+    7. registration/password_reset_done.html  邮件发送成功页面模板
+    8. registration/password_reset_confirm.html  设置新密码页面模板
+    9. registration/password_reset_complete.html 设置新密码成功页面模板
+    
+
+
+
+#form表单验证字段说明
+     {% csrf_token %} 防攻击
+     {% url 'users:register' %}  匹配users这个app下的register的urls路径
+     {{ field.label_tag }} 是相应控件的 label 标签
+    {{ field }} 是相应的表单控件
+    {{ field.errors }} 是表单的错误（如果有的话）
+    {{ field.help_text|safe }} 是控件相关的帮助信息
+
+#django自带的urls：
+    ^users/login/$ [name='login']
+    ^users/logout/$ [name='logout']
+    ^users/password_change/$ [name='password_change']
+    ^users/password_change/done/$ [name='password_change_done']
+    ^users/password_reset/$ [name='password_reset']
+    ^users/password_reset/done/$ [name='password_reset_done']
+    ^users/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$ [name='password_reset_confirm']
+    ^users/reset/done/$ [name='password_reset_complete']
